@@ -1,0 +1,51 @@
+/* font-family: 'Lato', sans-serif; */
+
+#title{
+    background-color: aqua;
+}
+
+#currentWeather{
+    background-color: black;
+}
+
+#search{
+    background-color: brown;
+}
+
+#cityName{
+    font-size: 30px;
+}
+
+#currentTemp{
+    font-size: 50px;
+}
+
+#date{
+    font-size: 20px;
+}
+
+.card{
+    margin: 20vh 3vw;
+}
+
+.card ul{
+    list-style: none;
+    padding: 0px;
+}
+
+@media (max-width: 768px) {
+    .card{
+        margin: 10vh 3vw;
+    }
+    #cityName{
+        font-size: 20px;
+    }
+    
+    #currentTemp{
+        font-size: 30px;
+    }
+    
+    #date{
+        font-size: 15px;
+    }
+}
