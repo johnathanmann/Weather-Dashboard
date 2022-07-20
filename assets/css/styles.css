@@ -13,7 +13,7 @@
     color: #294A5A;
 }
 
-#main p, #cityName, #currentTemp{
+#title h5,#main p, #cityName, #currentTemp{
     font-family: 'Lato', sans-serif;
 }
 
@@ -38,8 +38,37 @@
     padding: 0px;
 }
 
+.form-control{
+    border: none;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border: none;
+}
+
+.btn:focus {
+    box-shadow: none;
+}
+
 #searchBtn{
     background-color: #294A5A;
+}
+
+#searchHistory{
+    list-style: none;
+    padding: 0px;
+    padding: 0px 8px;
+}
+
+#searchHistory li{
+    border-bottom: 1px solid gray;
+}
+
+#clearHistory{
+    font-style: italic;
+    font-weight: 300;
+    padding: 0px 8px;
 }
 
 @media (max-width: 768px) {

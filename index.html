@@ -10,7 +10,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;1,300;1,700&display=swap" rel="stylesheet">
     <!-- Local CSS -->
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
@@ -19,6 +19,7 @@
         <div class="row">
       <div class="col-md-4" id="title">
         <h1 class="p-2">Weather Dashboard</h1>
+        <h5 id="datetime"></h5>
       </div>
       <div class="col-md-4" id="currentWeather">
         <div class="card">
@@ -27,7 +28,7 @@
               <div class="mx-auto" id="weatherTitle"><p>
                 <span id="cityName">City Name</span>
                 <span id="currentTemp">90F</span>
-                <span id="date">04/22/04</span>
+                <span id="date"></span>
             </p></div>
             <ul>
                 <li>Humidity: 100%</li>
@@ -39,16 +40,17 @@
     </div>
     <div class="col-md-4" id="search">
         <div class="input-group p-2 pt-4">
-            <input type="text" class="form-control" placeholder="Search">
+            <input type="text" class="form-control" placeholder="Search" id="userSearch">
             <div class="input-group-append">
               <button class="btn btn-secondary" type="button" id="searchBtn">
                 <i class="fa fa-search"></i>
               </button>
             </div>
           </div>
-          <ul id="searchHistory">
+          <p id="clearHistory" onclick="clearData()">Clear Search History</p>
+          <ol id="searchHistory">
 
-          </ul>
+          </ol>
     </div>
     </div>
     </div>
@@ -76,7 +78,8 @@
 
 
 
-
+    <!-- Moment.js Js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/9ee8ab9af4.js" crossorigin="anonymous"></script>
     <!-- Bootstrap JS -->
