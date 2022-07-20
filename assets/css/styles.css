@@ -38,6 +38,14 @@
     padding: 0px;
 }
 
+.hidden{
+    display: none;
+}
+
+.display{
+    display: block;
+}
+
 .form-control{
     border: none;
 }

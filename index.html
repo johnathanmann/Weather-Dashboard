@@ -22,18 +22,25 @@
         <h5 id="datetime"></h5>
       </div>
       <div class="col-md-4" id="currentWeather">
-        <div class="card">
+        <!-- searchPrompt card displays on site load and goes away when a city is searched -->
+        <div id="searchPrompt" class="card display">
             <div class="card-body">
-                <i class="fa-solid fa-sun"></i>
+                <h1 lass="display-3">Search Your City</h1>
+            </div>
+        </div>
+        <!-- cityDisplay card displays once a city is searched -->
+        <div id="cityDisplay" class="card hidden">
+            <div class="card-body">
+                <i id="weatherIcon" class=""></i>
               <div class="mx-auto" id="weatherTitle"><p>
-                <span id="cityName">City Name</span>
-                <span id="currentTemp">90F</span>
+                <span id="cityName"></span>
+                <span id="currentTemp"></span>
                 <span id="date"></span>
             </p></div>
             <ul>
-                <li>Humidity: 100%</li>
-                <li>Wind: Lots</li>
-                <li>UV: Mad UV</li>
+                <li>Humidity: <span id="humidity"></span></li>
+                <li>Wind: <span id="wind"></span></li>
+                <li>UV: <span id="uv"></span></li>
             </ul>
             </div>
           </div>
@@ -56,8 +63,11 @@
     </div>
     <div class="container-fluid">
         <div class="row">
+            <h1>5 Day Forecast</h1>
+        </div>
+        <div class="row">
             <div class="col">
-
+                
             </div>
             <div class="col">
                 
