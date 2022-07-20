@@ -15,12 +15,12 @@
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-    <div class="container-fluid">
+    <div class="container-fluid" id="main">
         <div class="row">
-      <div class="col-md-4 col-sm-4" id="title">
-        <h1>Weather Dashboard</h1>
+      <div class="col-md-4" id="title">
+        <h1 class="p-2">Weather Dashboard</h1>
       </div>
-      <div class="col-md-4 col-sm-4" id="currentWeather">
+      <div class="col-md-4" id="currentWeather">
         <div class="card">
             <div class="card-body">
                 <i class="fa-solid fa-sun"></i>
@@ -37,11 +37,15 @@
             </div>
           </div>
     </div>
-    <div class="col-md-4 col-sm-4" id="search">
-        <form class="form-inline">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn" type="submit">Search</button>
-          </form>
+    <div class="col-md-4" id="search">
+        <div class="input-group p-2 pt-4">
+            <input type="text" class="form-control" placeholder="Search">
+            <div class="input-group-append">
+              <button class="btn btn-secondary" type="button" id="searchBtn">
+                <i class="fa fa-search"></i>
+              </button>
+            </div>
+          </div>
           <ul id="searchHistory">
 
           </ul>
