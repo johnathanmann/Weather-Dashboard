@@ -3,6 +3,10 @@
     --blue: #294A5A;
 }
 
+#title h1{
+    font-weight: 700;
+}
+
 #main{
     background-color: #eae0d5;
 }
@@ -77,6 +81,12 @@
     font-style: italic;
     font-weight: 300;
     padding: 0px 8px;
+    float: right;
+}
+
+#uv{
+    padding: 3px;
+    border-radius: 5px;
 }
 
 @media (max-width: 768px) {

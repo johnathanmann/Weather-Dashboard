@@ -16,11 +16,6 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
-
-
-// API key for the OpenWeatherMap API
-var apiKey = "711c083a0e9e1df7f231968de1c91191";
-
 // Save search history
 var list = document.getElementById('searchHistory');
 var searchBtn = $('#searchBtn');
@@ -51,6 +46,9 @@ searchBtn.click(function () {
       localStorage.setItem('list', list.innerHTML);
     }
 
+    // API key for the OpenWeatherMap API
+var apiKey = "711c083a0e9e1df7f231968de1c91191";
+
     // Find current weather information
 var weatherIcon = document.querySelector('#weatherIcon');
 var cityName = document.querySelector('#cityName');
@@ -65,6 +63,7 @@ var urlToday = "https://api.openweathermap.org/data/2.5/weather?q=" + userSearch
 var urlForecast = "https://api.openweathermap.org/data/2.5/forecast?q=" + userSearch + "&Appid=" + apiKey + "&units=imperial";
 console.log(urlToday);
   
+// This AJAX call gets all of the information for the city and displays it
   $.ajax({
     url: urlToday,
     method: "GET"
@@ -74,10 +73,33 @@ console.log(urlToday);
     currentTemp.innerHTML = response.main.temp + "&deg;F";
     humidity.innerHTML = response.main.humidity + "%";
     wind.innerHTML = response.wind.speed + " MPH";
+    var weather = 'https://openweathermap.org/img/w/'+ response.weather[0].icon + '.png';
+    weatherIcon.src = weather;
+    // The following AJAX call will find the UV index for the current day
+    var lat = response.coord.lat;
+    var lon = response.coord.lon;
+    let uvUrl = "https://api.openweathermap.org/data/2.5/uvi?&lat=" + lat + "&lon=" + lon + "&appid=" + apiKey;
+    $.ajax({
+        url: uvUrl,
+        method: "GET"
+    }).then(function(response){
+        console.log(uvUrl);
+        uv.innerHTML = response.value;
+        if(response.value <= 15){
+            uv.style.backgroundColor = "#d15e5e";
+        };
+        if(response.value <= 10){
+            uv.style.backgroundColor = "#e09e5c";
+        };
+        if(response.value <= 5){
+            uv.style.backgroundColor = "#a5db9c";
+        };
+        
+    });
 });
 
 
-});  
+});
 
 // Clears localStorage on click
 function clearData () {
