@@ -15,13 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
   };
 });
 
-// Find current weather information
-var weatherIcon = $('#weatherIcon');
-var cityName = $('#cityName');
-var currentTemp = $('#currentTemp');
-var humidity = $('#humidity');
-var wind = $('#wind');
-var uv = $('#uv');
+
 
 
 // API key for the OpenWeatherMap API
@@ -32,11 +26,6 @@ var list = document.getElementById('searchHistory');
 var searchBtn = $('#searchBtn');
 
 searchBtn.click(function () {
-
-    // Variables for current weather  
-    var userSearch = $("#userSearch").val();
-    var urlToday = "https://api.openweathermap.org/data/2.5/weather?q=" + userSearch + "&Appid=" + apiKey + "&units=imperial";
-    var urlForecast = "https://api.openweathermap.org/data/2.5/forecast?q=" + userSearch + "&Appid=" + apiKey + "&units=imperial";
 
     var userSearch = document.querySelector("#userSearch").value;
     localStorage.setItem('userSearch', (userSearch));
@@ -49,9 +38,7 @@ searchBtn.click(function () {
         $('#cityDisplay').addClass('display');
         $('#cityDisplay').removeClass('hidden');
         addSearchHistory();
-        console.log(userSearch);
-        console.log(urlToday);
-        console.log(urlForecast);
+        console.log(userSearch);        
     }
 
   // Saves search to search history
@@ -63,12 +50,37 @@ searchBtn.click(function () {
       ol.appendChild(li);
       localStorage.setItem('list', list.innerHTML);
     }
+
+    // Find current weather information
+var weatherIcon = document.querySelector('#weatherIcon');
+var cityName = document.querySelector('#cityName');
+var currentTemp = document.querySelector('#currentTemp')
+var humidity = document.querySelector('#humidity');
+var wind = document.querySelector('#wind');
+var uv = document.querySelector('#uv');
+
+    // Variables for current weather  
+var userSearch = $("#userSearch").val();
+var urlToday = "https://api.openweathermap.org/data/2.5/weather?q=" + userSearch + "&Appid=" + apiKey + "&units=imperial";
+var urlForecast = "https://api.openweathermap.org/data/2.5/forecast?q=" + userSearch + "&Appid=" + apiKey + "&units=imperial";
+console.log(urlToday);
   
+  $.ajax({
+    url: urlToday,
+    method: "GET"
+}).then(function(response){
+    console.log(response);
+    cityName.innerHTML = response.name;
+    currentTemp.innerHTML = response.main.temp + "&deg;F";
+    humidity.innerHTML = response.main.humidity + "%";
+    wind.innerHTML = response.wind.speed + " MPH";
 });
+
+
+});  
 
 // Clears localStorage on click
 function clearData () {
     window.localStorage.clear();
     window.location.reload();
 };
-
