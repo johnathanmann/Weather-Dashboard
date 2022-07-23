@@ -33,13 +33,11 @@ searchBtn.click(function () {
     }
   // Saves search to search history
     function addSearchHistory (){
-      var ol = document.getElementById("searchHistory");
-      var li = document.createElement("li");
-      txtNode = document.createTextNode(localStorage.getItem('userSearch'));
-      li.appendChild(txtNode);
-      ol.appendChild(li);
+      var li = $("<li class='pastCity' >" + userSearch + "</li>");
+      $('#searchHistory').append(li);
       localStorage.setItem('list', list.innerHTML);
     }
+    
 
     requestWeather();
     
