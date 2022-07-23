@@ -21,6 +21,9 @@ var searchBtn = $('#searchBtn');
 
 // Displays weather on searchBtn click and adds city's to search history
 searchBtn.click(function () {
+    // Clears 5 day forecast div so that multiple forecasts aren't shown at once
+    document.getElementById('forecastHeader').innerHTML = "";
+    document.getElementById('forecast').innerHTML = "";
     // Grab user input
     var userSearch = document.querySelector("#userSearch").value;
     localStorage.setItem('userSearch', (userSearch));
@@ -30,14 +33,13 @@ searchBtn.click(function () {
         // Adds and removes classes to display the correct card
         addSearchHistory();
         console.log(userSearch);        
-    }
+    };
   // Saves search to search history
     function addSearchHistory (){
-      var li = $("<li class='pastCity' >" + userSearch + "</li>");
+      var li = $("<li>" + userSearch + "</li>");
       $('#searchHistory').append(li);
       localStorage.setItem('list', list.innerHTML);
-    }
-    
+    };
 
     requestWeather();
     
@@ -64,7 +66,6 @@ var wind = document.querySelector('#wind');
 var uv = document.querySelector('#uv');
 
     // Variables for current weather  
-var clearSearch = $("#userSearch");
 var userSearch = $("#userSearch").val();
 var urlToday = "https://api.openweathermap.org/data/2.5/weather?q=" + userSearch + "&Appid=" + apiKey + "&units=imperial";
 console.log(urlToday);
@@ -79,7 +80,6 @@ console.log(urlToday);
             $('#searchPrompt').removeClass('display');
             $('#cityDisplay').addClass('display');
             $('#cityDisplay').removeClass('hidden');
-            clearSearch.value = "";
             cityName.innerHTML = response.name;
             currentTemp.innerHTML = response.main.temp + "&deg;F";
             humidity.innerHTML = response.main.humidity + "%";
@@ -94,7 +94,6 @@ console.log(urlToday);
                 url: uvUrl,
                 method: "GET"
             }).then(function(response){
-                console.log(uvUrl);
                 uv.innerHTML = response.value;
                 if(response.value <= 15){
                     uv.style.backgroundColor = "#d15e5e";
@@ -117,7 +116,6 @@ console.log(urlToday);
             url: urlForecast,
             method: "GET"
         }).then(function(response){
-            console.log(response);
             $('#forecast').empty();
             for (var i = 1; i < response.list.length; i+=8) {;
                 // Create cards
