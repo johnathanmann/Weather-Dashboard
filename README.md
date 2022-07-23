@@ -9,7 +9,7 @@ Check out the different aspects of the project below:
 
 - [GitHub Page](https://johnathanmann.github.io/Weather-Dashboard/)
 - [Repository](https://github.com/johnathanmann/Weather-Dashboard)
-- [Video of deployed application](https://drive.google.com/file/d/1ii_v0yNJdjf6-GYZvWohaS0N2v_hcylY/view)
+- [Video of deployed application](https://drive.google.com/file/d/14pTEke-UBOwwHhWa4UT24yJfTAHY9pmY/view)
 
 ![Screenshot of JavaScript Quiz start page](./assets/img/weather-dashboard.PNG)
 
