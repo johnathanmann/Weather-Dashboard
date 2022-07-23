@@ -1,20 +1,22 @@
 /* font-family: 'Lato', sans-serif; */
 :root{
-    --blue: #294A5A;
+    --brown: #593823;
+    --light: #eae0d5;
+    background-color: var(--light);
+}
+
+body{
+    background-color: var(--light);
 }
 
 #title h1{
     font-weight: 700;
 }
 
-#main{
-    background-color: #eae0d5;
-}
-
 #main h1, #cityName{
     font-family: 'Lato', sans-serif;
     font-style: italic;
-    color: #294A5A;
+    color: var(--brown);
 }
 
 #title h5,#main p, #cityName, #currentTemp{
@@ -35,6 +37,7 @@
 
 .card{
     margin: 20vh 3vw;
+    font-family: 'Lato', sans-serif;
 }
 
 .card ul{
@@ -64,7 +67,7 @@
 }
 
 #searchBtn{
-    background-color: #294A5A;
+    background-color: var(--brown);
 }
 
 #searchHistory{
@@ -87,6 +90,23 @@
 #uv{
     padding: 3px;
     border-radius: 5px;
+}
+
+/* Forecast Cards */
+
+#forecastHeader h1{
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-style: italic;
+    color: var(--brown);
+}
+
+#forecastDiv h5{
+    font-family: 'Lato', sans-serif;
+}
+
+.forecastCard{
+    margin-bottom: 20px;
 }
 
 @media (max-width: 768px) {
@@ -114,3 +134,4 @@
         margin: 5vh 3vw;
     }
 }
+
