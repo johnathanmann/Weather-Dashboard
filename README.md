@@ -20,4 +20,4 @@ Feel free to install using GitHubs recommended clone methods or by downloading t
 To use the project all you need is a browser, but to access the code you need your text editor of choice.
 
 ## Summary
-This site allows you to find the weather of any city along with a 5 day forecast. This is done through OpenWeather's One Call API 3.0. This project also utilizes Bootstrap 4 and JQuery. Your past searches are saved in a search history, but they can be cleared.
+This site allows you to find the weather of any city along with a 5 day forecast. This is done through OpenWeather's One Call API 3.0. This project also utilizes Bootstrap 4, moment.js, and JQuery. Your past searches are saved in a search history, but they can be cleared.
